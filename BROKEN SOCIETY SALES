@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BROKEN SOCIETY - Hoodies & Exclusive</title>
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: 'Felix Titling', serif;
+            background-color: #000;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #000;
+            text-align: center;
+            padding: 20px;
+            border-bottom: 2px solid #fff;
+        }
+
+        header img {
+            max-width: 150px;
+        }
+
+        header h1 {
+            font-family: 'Edwardian Script ITC', cursive;
+            font-size: 3rem;
+            margin: 10px 0 0;
+        }
+
+        header p {
+            font-family: 'Felix Titling', serif;
+            font-size: 1rem;
+            margin: 5px 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            background-color: #111;
+            padding: 10px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        nav a:hover {
+            color: #ccc;
+        }
+
+        section {
+            padding: 40px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        /* Catálogo */
+        .catalogo {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .producto {
+            background-color: #111;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            text-align: center;
+        }
+
+        .producto:hover {
+            transform: scale(1.05);
+        }
+
+        .producto img {
+            width: 100%;
+            height: auto;
+        }
+
+        .producto h3 {
+            margin: 10px 0 0;
+        }
+
+        .producto p {
+            padding: 0 10px;
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+
+        /* Pie de página */
+        footer {
+            background-color: #000;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.8rem;
+            color: #ccc;
+            border-top: 1px solid #222;
+        }
+
+        /* WhatsApp flotante */
+        .whatsapp {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 100;
+        }
+
+        .whatsapp img {
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Encabezado -->
+    <header>
+        <img src="logo.png" alt="BROKEN SOCIETY Logo">
+        <h1>BROKEN SOCIETY</h1>
+        <p>Hoodies & Exclusive</p>
+    </header>
+
+    <!-- Menú -->
+    <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#catalogo">Catálogo</a>
+        <a href="#sobre-nosotros">Sobre Nosotros</a>
+        <a href="#carrito">Carrito</a>
+        <a href="#contacto">Contacto</a>
+        <a href="#envios">Envíos</a>
+    </nav>
+
+    <!-- Inicio -->
+    <section id="inicio">
+        <h2>Bienvenido a BROKEN SOCIETY</h2>
+        <p>Hoodies exclusivos, minimalistas y diseñados a medida para un estilo urbano de lujo.</p>
+    </section>
+
+    <!-- Catálogo -->
+    <section id="catalogo">
+        <h2>Nuestros Hoodies</h2>
+        <div class="catalogo">
+            <div class="producto">
+                <img src="hoodie1.jpg" alt="Hoodie 1">
+                <h3>Hoodie Black Edition</h3>
+                <p>Diseño urbano y minimalista. Hecho a medida.</p>
+            </div>
+            <div class="producto">
+                <img src="hoodie2.jpg" alt="Hoodie 2">
+                <h3>Hoodie White Luxe</h3>
+                <p>Edición limitada para verdaderos amantes del streetwear.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre Nosotros -->
+    <section id="sobre-nosotros">
+        <h2>Sobre Nosotros</h2>
+        <p>En BROKEN SOCIETY creamos prendas únicas, hechas a mano y diseñadas a medida para cada cliente. Nuestro estilo combina lujo, minimalismo y la esencia del streetwear.</p>
+    </section>
+
+    <!-- Política de envíos -->
+    <section id="envios">
+        <h2>Envíos</h2>
+        <p>Realizamos envíos por Servientrega, Coordinadora e Interrapidísimo. Tiempo estimado: 3 a 5 días hábiles según localidad.</p>
+        <p><strong>Política:</strong> No se aceptan cambios ni devoluciones, ya que cada prenda es diseñada a medida.</p>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto">
+        <h2>Contacto</h2>
+        <p>Email: contacto@brokensociety.com</p>
+        <p>Teléfono: +57 300 000 0000</p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 BROKEN SOCIETY - Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- WhatsApp flotante -->
+    <div class="whatsapp">
+        <a href="https://wa.me/573000000000" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/WhatsApp_icon.png" alt="WhatsApp">
+        </a>
+    </div>
+
+</body>
+</html>
