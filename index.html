@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>BROKEN SOCIETY — Hoodies & Exclusive</title>
+  <meta name="theme-color" content="#000000" />
+  <style>
+    :root{
+      --bg:#000;
+      --fg:#fff;
+      --muted:#bfbfbf;
+      --accent:#111;
+      --radius:12px;
+      --card-shadow: 0 6px 20px rgba(0,0,0,0.6);
+      --glass: rgba(255,255,255,0.03);
+    }
+    @font-face{font-family:'Edwardian Script ITC'; src: local('Edwardian Script ITC');}
+    @font-face{font-family:'Felix Titling'; src: local('Felix Titling');}
+    .font-script{font-family:'Edwardian Script ITC', 'Great Vibes', 'Parisienne', cursive;}
+    .font-titling{font-family:'Felix Titling', 'Cinzel', 'Cinzel Decorative', serif; letter-spacing:1px;}
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;background:var(--bg);color:var(--fg);font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;}
+    header{display:flex;align-items:center;justify-content:space-between;padding:18px 28px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);position:sticky;top:0;z-index:60;border-bottom:1px solid rgba(255,255,255,0.04)}
+    .brand{display:flex;align-items:center;gap:14px}
+    .logo{width:72px;height:72px;border-radius:10px;background:var(--glass);display:flex;align-items:center;justify-content:center;overflow:hidden}
+    .logo img{width:100%;height:100%;object-fit:cover}
+    .brand h1{margin:0;font-size:20px}
+    nav{display:flex;gap:14px;align-items:center}
+    nav a{color:var(--fg);text-decoration:none;padding:8px 12px;border-radius:8px;font-weight:600}
+    nav a:hover{background:rgba(255,255,255,0.03)}
+    .cta{display:flex;gap:8px;align-items:center}
+    .icon-btn{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:8px;border-radius:10px;cursor:pointer}
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;padding:36px 28px;align-items:center}
+    .slider{position:relative;border-radius:18px;overflow:hidden;box-shadow:var(--card-shadow);background:linear-gradient(180deg,#0a0a0a, #060606)}
+    .slides{display:flex;transition:transform 450ms cubic-bezier(.22,.9,.31,1)}
+    .slide{min-width:100%;display:grid;grid-template-columns:1fr;align-items:center;padding:48px;gap:18px}
+    .slide .eyebrow{opacity:.8;font-size:13px}
+    .slide h2{font-size:44px;margin:6px 0}
+    .slide p{color:var(--muted);max-width:68%}
+    .hero-right{display:flex;flex-direction:column;gap:12px}
+    .wh-popup{position:fixed;right:20px;bottom:24px;background:#25D366;color:#fff;border-radius:14px;padding:12px 14px;display:flex;align-items:center;gap:10px;box-shadow:0 8px 30px rgba(0,0,0,0.45);transform:translateY(140%);transition:transform 300ms ease-in-out;z-index:200}
+    .wh-popup.show{transform:translateY(0)}
+    main{padding:28px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:22px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);border-radius:14px;padding:14px;border:1px solid rgba(255,255,255,0.03);box-shadow:var(--card-shadow);transition:transform 220ms ease, box-shadow 220ms ease}
+    .card:hover{transform:translateY(-10px);box-shadow:0 20px 40px rgba(0,0,0,0.6)}
+    .thumb{height:320px;border-radius:10px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:#0b0b0b}
+    .thumb img{width:100%;height:100%;object-fit:cover}
+    .meta{padding:12px 6px}
+    .meta h3{margin:0;font-size:18px}
+    .price{font-weight:800;margin-top:6px}
+    .tags{font-size:12px;color:var(--muted)}
+    .thumb img{transition:transform 420ms cubic-bezier(.2,.9,.3,1), filter 420ms}
+    .card:hover .thumb img{transform:scale(1.06) rotate(-1deg);filter:brightness(1.04) saturate(1.06)}
+    .modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;padding:28px;z-index:120}
+    .modal.show{display:flex}
+    .modal .panel{width:960px;max-width:98%;background:linear-gradient(180deg,#070707,#0b0b0b);border-radius:12px;padding:18px;border:1px solid rgba(255,255,255,0.04);}
+    .modal .panel .left{float:left;width:48%}
+    .modal .panel .right{float:right;width:50%;padding-left:18px}
+    .clearfix::after{content:'';display:block;clear:both}
+    .cart-list{max-width:980px;margin:20px auto}
+    .cart-item{display:flex;gap:12px;align-items:center;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.03);background:rgba(255,255,255,0.01)}
+    footer{padding:24px;border-top:1px solid rgba(255,255,255,0.03);text-align:center;color:var(--muted)}
+    @media (max-width:980px){.hero{grid-template-columns:1fr;padding:18px}.slides .slide p{max-width:100%}.modal .panel{padding:12px}.modal .panel .left,.modal .panel .right{width:100%;float:none}}
+    .btn{background:var(--fg);color:var(--bg);padding:10px 14px;border-radius:10px;font-weight:700;border:none;cursor:pointer}
+    .btn.ghost{background:transparent;color:var(--fg);border:1px solid rgba(255,255,255,0.06)}
+    .muted{color:var(--muted);font-size:13px}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <div class="logo" id="logo-slot">
+        <img src="logo.png" alt="BROKEN SOCIETY logo" id="logo-img">
+      </div>
+      <div>
+        <h1 class="font-titling">BROKEN SOCIETY <span class="muted">— Hoodies & Exclusive</span></h1>
+        <div class="muted" style="font-size:12px">Lujo urbano · Minimal · Streetwear</div>
+      </div>
+    </div>
+    <nav>
+      <a href="#inicio">Inicio</a>
+      <a href="#catalogo">Catálogo</a>
+      <a href="#about">Sobre Nosotros</a>
+      <a href="#carrito">Carrito</a>
+      <a href="#contacto">Contacto</a>
+      <a href="#checkout">Compra & Envíos</a>
+    </nav>
+    <div class="cta">
+      <button class="icon-btn" id="searchBtn">🔍</button>
+      <button class="icon-btn" id="cartBtn">🛒 <span id="cart-count">0</span></button>
+    </div>
+  </header>
+
+  <section class="hero" id="inicio">
+    <div class="slider" aria-label="Galería de productos" id="slider">
+      <div class="slides" id="slides">
+        <div class="slide">
+          <div class="eyebrow">Edición limitada</div>
+          <h2 class="font-script">AW 2025 — The Broken Capsule</h2>
+          <p>Hoodies diseñadas a medida. Material premium, corte urbano y detalles exclusivos — hecho para durar. Explora la colección.</p>
+          <div style="margin-top:16px">
+            <a class="btn" href="#catalogo">Ver catálogo</a>
+            <button class="btn ghost" onclick="openWhats()">Atención (WhatsApp)</button>
+          </div>
+        </div>
+        <div class="slide">
+          <div class="eyebrow">Personaliza</div>
+          <h2 class="font-script">Diseñadas para ti</h2>
+          <p>Cada prenda se fabrica a pedido — demora entre 3 y 5 días hábiles según la localidad.</p>
+          <div style="margin-top:16px">
+            <a class="btn" href="#catalogo">Explorar</a>
+          </div>
+        </div>
+      </div>
+      <div style="position:absolute;left:12px;bottom:12px;display:flex;gap:8px">
+        <button class="icon-btn" id="prev">◀</button>
+        <button class="icon-btn" id="next">▶</button>
+      </div>
+    </div>
+
+    <aside class="hero-right">
+      <div style="padding:18px;border-radius:12px;background:linear-gradient(180deg,#060606,#0b0b0b);border:1px solid rgba(255,255,255,0.03);box-shadow:var(--card-shadow)">
+        <h3 class="font-titling" style="margin:0">Ediciones</h3>
+        <p class="muted">Drops frecuentes. Suscríbete para acceso anticipado.</p>
+        <div style="margin-top:10px">
+          <input style="width:100%;padding:10px;border-radius:8px;background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--fg)" placeholder="Tu correo" id="subscribeEmail">
+          <button class="btn" style="width:100%;margin-top:8px" onclick="subscribe()">Suscribir</button>
+        </div>
+      </div>
+      <div style="padding:18px;border-radius:12px;background:linear-gradient(180deg,#060606,#0b0b0b);border:1px solid rgba(255,255,255,0.03);box-shadow:var(--card-shadow)">
+        <h4 style="margin:0">Política</h4>
+        <p class="muted" style="font-size:13px;margin-top:6px">Sin cambios ni devoluciones: cada prenda es diseñada a medida. Tiempo de fabricación: 3-5 días hábiles.</p>
+      </div>
+    </aside>
+  </section>
+
+  <div class="wh-popup" id="whPopup" role="dialog" aria-hidden="true">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="wa" style="width:34px;height:34px;border-radius:8px;background:#fff;padding:6px">
+    <div>
+      <div style="font-weight:700">Atención vía WhatsApp</div>
+      <div style="font-size:13px;opacity:.9">Desliza para chatear con un asesor</div>
+    </div>
+    <div style="margin-left:8px">
+      <a href="https://wa.me/573000000000" target="_blank" class="btn">Chatear</a>
+    </div>
+  </div>
+
+  <section id="catalogo" style="padding:28px">
+    <h2 class="font-titling">Catálogo</h2>
+    <p class="muted">Hacemos cada hoodie a medida — fotos y descripciones abajo. Click en cada producto para más detalles.</p>
+    <div class="grid" id="productGrid"></div>
+  </section>
+
+  <div class="modal" id="productModal">
+    <div class="panel clearfix">
+      <div class="left">
+        <div id="modalImage" style="height:420px;border-radius:10px;overflow:hidden;background:#0b0b0b;display:flex;align-items:center;justify-content:center">
+          <img src="placeholder.png" alt="producto" style="width:100%;height:100%;object-fit:cover">
+        </div>
+      </div>
+      <div class="right">
+        <h2 id="modalTitle" class="font-titling">Hoodie Name</h2>
+        <div class="muted" id="modalShort">Short description</div>
+        <div style="margin-top:12px" id="modalPrice">$ 120.000 COP</div>
+        <div style="margin-top:12px">
+          <label class="muted">Talla</label>
+          <select id="sizeSelect" style="width:100%;padding:10px;border-radius:8px;background:transparent;border:1px solid rgba(255,255,255,0.04)">
+            <option>S</option><option>M</option><option>L</option><option>XL</option>
+          </select>
+        </div>
+        <div style="margin-top:12px">
+          <label class="muted">Cantidad</label>
+          <input type="number" id="qty" value="1" min="1" style="width:100%;padding:10px;border-radius:8px;background:transparent;border:1px solid rgba(255,255,255,0.04)">
+        </div>
+        <div style="margin-top:18px;display:flex;gap:10px">
+          <button class="btn" id="addToCartBtn">Agregar al carrito</button>
+          <button class="btn ghost" onclick="closeModal()">Cerrar</button>
+        </div>
+        <hr style="border:none;border-top:1px solid rgba(255,255,255,0.03);margin:12px 0">
+        <h4>Descripción</h4>
+        <p id="modalLong" class="muted">Descripción larga del producto. Materiales, cuidados, detalles exclusivos.</p>
+      </div>
+    </div>
+  </div>
+
+  <section id="about" style="padding:28px">
+    <h2 class="font-titling">Sobre Nosotros</h2>
+    <p class="muted">BROKEN SOCIETY nace de la fusión entre lujo, minimalismo y la escena urbana. Diseños hechos a medida, tejidos premium y una visión de streetwear consciente. Nuestra política: prendas únicas, producidas bajo demanda; sin cambios ni devoluciones.</p>
+  </section>
+
+  <section id="carrito" style="padding:28px">
+    <h2 class="font-titling">Carrito</h2>
+    <div class="cart-list" id="cartList"></div>
+    <div style="max-width:980px;margin:18px auto;display:flex;justify-content:flex-end;gap:12px">
+      <button class="btn ghost" onclick="clearCart()">Vaciar</button>
+      <a href="#checkout" class="btn">Ir a pagar</a>
+    </div>
+  </section>
+
+  <section id="contacto" style="padding:28px">
+    <h2 class="font-titling">Contacto</h2>
+    <p class="muted">¿Preguntas? Escríbenos por WhatsApp, o usa el formulario abajo.</p>
+    <form id="contactForm" style="max-width:720px">
+      <input placeholder="Nombre" style="width:100%;padding:10px;margin-top:8px;border-radius:8px;background:transparent;border:1px solid rgba(255,255,255,0.04)">
+      <input placeholder="Correo" style="width:100%;padding:10px;margin-top:8px;border-radius:8px;background:transparent;border:1px solid rgba(255,255,255,0.04)">
+      <textarea placeholder="Mensaje" style="width:100%;padding:12px;margin-top:8px;border-radius:8px;background:transparent;border:1px solid rgba(255,255,255,0.04);height:120px"></textarea>
+      <button class="btn" style="margin-top:8px" onclick="event.preventDefault();alert('Formulario enviado (demo)')">Enviar</button>
+    </form>
+  </section>
+
+  <section id="checkout" style="padding:28px">
+    <h2 class="font-titling">Proceso de compra y envíos</h2>
+    <p class="muted">Opciones de pago: PayPal y tarjeta (vía pasarela), contraentrega. Opciones de envío: Servientrega, Coordinadora, Interrapidísimo — selecciona según prefieras. Política: sin cambios ni devoluciones; producción 3-5 días hábiles.</p>
+    <div style="max-width:980px;margin-top:16px">
+      <h4>Resumen de compra</h4>
+      <div id="checkoutSummary" style="padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.03);background:rgba(255,255,255,0.01)"></div>
+      <h4 style="margin-top:12px">Elegir método de envío</h4>
+      <select id="shippingSelect" style="width:100%;padding:10px;border-radius:8px;background:transparent;border:1px solid rgba(255,255,255,0.04)">
+        <option value="servientrega">Servientrega</option>
+        <option value="coordinadora">Coordinadora</option>
+        <option value="interrapidisimo">Interrapidísimo</option>
+        <option value="contraentrega">Contraentrega</option>
+      </select>
+      <h4 style="margin-top:12px">Método de pago</h4>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <button class="btn" onclick="payWith('paypal')">Pagar con PayPal</button>
+        <button class="btn ghost" onclick="payWith('card')">Tarjeta (placeholder)</button>
+        <button class="btn ghost" onclick="payWith('cod')">Contraentrega</button>
+      </div>
+      <div style="margin-top:12px" class="muted">*Integración real requiere claves de PayPal / pasarela. Este demo muestra el flujo y placeholders.</div>
+    </div>
+  </section>
+
+  <footer>
+    <div style="max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap">
+      <div>
+        <strong>BROKEN SOCIETY</strong>
+        <div class="muted">Hoodies & Exclusive · Producción a medida · 3-5 días hábiles</div>
+      </div>
+      <div class="muted">Envíos: Servientrega · Coordinadora · Interrapidísimo</div>
+    </div>
+  </footer>
+
+  <script>
+    const PRODUCTS = [
+      { id: 'bs-001', name: 'Broken Classic Hoodie', short: 'Hoodie premium, corte clásico', long: 'Material 330g algodón peinado, interior afelpado, costuras reforzadas, etiqueta metálica, detalles bordados. Cuidados: lavar con agua fría y del revés.', price: 120000, img: 'https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=1200&q=60' },
+      { id: 'bs-002', name: 'Broken Oversize', short: 'Oversize fit, drop shoulder', long: 'Corte oversize, ideal para streetwear. Material premium y personalizado bajo pedido. Paquete incluye bolsa protectora y tarjeta de autenticidad.', price: 145000, img: 'https://images.unsplash.com/photo-1600180758891-5f3b1d5c8f8d?auto=format&fit=crop&w=1200&q=60' },
+      { id: 'bs-003', name: 'Broken Minimal Hoodie', short: 'Diseño minimal con logo discreto', long: 'Hoodie minimal con logo bordado en el pecho. Perfecta para looks limpios y elegantes con un toque urbano.', price: 110000, img: 'https://images.unsplash.com/photo-1618354691250-9a3b6bd7f1a8?auto=format&fit=crop&w=1200&q=60' }
+    ];
+    const grid = document.getElementById('productGrid');
+    function money(n){ return n.toLocaleString('es-CO', {style:'currency', currency:'COP', maximumFractionDigits:0}) }
+    PRODUCTS.forEach(p=>{
+      const card = document.createElement('div'); card.className='card';
+      card.innerHTML = `
+        <div class="thumb"><img src="${p.img}" alt="${p.name}"></div>
+        <div class="meta">
+          <h3>${p.name}</h3>
+          <div class="muted">${p.short}</div>
+          <div class="price">${money(p.price)}</div>
+          <div style="margin-top:10px"><button class="btn" onclick="openProduct('${p.id}')">Ver producto</button></div>
+        </div>
+      `;
+      grid.appendChild(card);
+    });
+    const modal = document.getElementById('productModal');
+    let currentProduct=null;
+    function openProduct(id){
+      const p = PRODUCTS.find(x=>x.id===id); if(!p) return;
+      currentProduct=p;
+      document.getElementById('modalTitle').innerText=p.name;
+      document.getElementById('modalShort').innerText=p.short;
+      document.getElementById('modalLong').innerText=p.long;
+      document.getElementById('modalPrice').innerText=money(p.price);
+      document.getElementById('modalImage').innerHTML = `<img src="${p.img}" alt="${p.name}">`;
+      modal.classList.add('show');
+    }
+    function closeModal(){ modal.classList.remove('show') }
+    document.getElementById('addToCartBtn').addEventListener('click', ()=>{
+      const size = document.getElementById('sizeSelect').value;
+      const qty = parseInt(document.getElementById('qty').value)||1;
+      addToCart({id:currentProduct.id, name:currentProduct.name, price:currentProduct.price, size, qty, img:currentProduct.img});
+      closeModal();
+    });
+    function getCart(){ return JSON.parse(localStorage.getItem('bs_cart')||'[]') }
+    function saveCart(c){ localStorage.setItem('bs_cart', JSON.stringify(c)); renderCart(); updateCartCount(); }
+    function addToCart(item){ const c=getCart(); const existing = c.find(x=>x.id===item.id && x.size===item.size); if(existing){ existing.qty += item.qty } else c.push(item); saveCart(c); }
+    function removeFromCart(idx){ const c=getCart(); c.splice(idx,1); saveCart(c); }
+    function clearCart(){ localStorage.removeItem('bs_cart'); renderCart(); updateCartCount(); }
+    function renderCart(){ const container = document.getElementById('cartList'); container.innerHTML=''; const c=getCart(); if(c.length===0){ container.innerHTML='<div class="muted">Tu carrito está vacío.</div>'; return }
+      c.forEach((it,i)=>{
+        const div = document.createElement('div'); div.className='cart-item'; div.innerHTML=`
+          <img src="${it.img}" style="width:84px;height:84px;object-fit:cover;border-radius:8px">
+          <div style="flex:1">
+            <div style="font-weight:700">${it.name} <span class="muted" style="font-weight:600">· ${it.size}</span></div>
+            <div class="muted">Cantidad: ${it.qty}</div>
+          </div>
+          <div style="text-align:right">
+            <div style="font-weight:800">${money(it.price*it.qty)}</div>
+            <div style="margin-top:8px"><button class="btn ghost" onclick="removeFromCart(${i})">Eliminar</button></div>
+          </div>
+        `;
+        container.appendChild(div);
+      })
+    }
+    function updateCartCount(){ const c=getCart(); const count = c.reduce((s,it)=>s+it.qty,0); document.getElementById('cart-count').innerText = count; }
+    renderCart(); updateCartCount();
+    function renderCheckout(){ const el = document.getElementById('checkoutSummary'); const c=getCart(); if(c.length===0){ el.innerHTML='<div class="muted">No hay artículos en el carrito.</div>'; return }
+      let subtotal = c.reduce((s,it)=>s + it.price*it.qty,0); let shipping = 10000;
+      el.innerHTML = `<div style="display:flex;flex-direction:column;gap:8px">${c.map(it=>`<div style=\"display:flex;justify-content:space-between\"><div>${it.name} · ${it.size} ×${it.qty}</div><div>${money(it.price*it.qty)}</div></div>`).join('')}<hr style="border:none;border-top:1px solid rgba(255,255,255,0.03)"><div style="display:flex;justify-content:space-between"><div>Subtotal</div><div>${money(subtotal)}</div></div><div style="display:flex;justify-content:space-between"><div>Envio (estimado)</div><div>${money(shipping)}</div></div><div style="display:flex;justify-content:space-between;font-weight:800"><div>Total</div><div>${money(subtotal+shipping)}</div></div></div>`;
+    }
+    renderCheckout();
+    function payWith(method){ const c=getCart(); if(c.length===0){ alert('El carrito está vacío'); return }
+      if(method==='paypal'){ alert('Redirigiendo a PayPal (demo). En producción, integra el SDK de PayPal y crea órdenes en servidor.'); }
+      else if(method==='card'){ alert('Formulario de pago con tarjeta (placeholder). Implementa tu pasarela (Stripe, PayU, PlacetoPay, etc.)'); }
+      else if(method==='cod'){ alert('Has elegido contraentrega. Un asesor contactará para confirmar la dirección.'); }
+    }
+    function subscribe(){ const v=document.getElementById('subscribeEmail').value; if(!v) return alert('Ingresa tu correo'); alert('Gracias — suscripción demo: ' + v); }
+    const slidesEl = document.getElementById('slides'); let current = 0; const total = slidesEl.children.length;
+    document.getElementById('next').addEventListener('click', ()=>{goTo(current+1)});
+    document.getElementById('prev').addEventListener('click', ()=>{goTo(current-1)});
+    function goTo(i){ current = (i + total) % total; slidesEl.style.transform = `translateX(${-current * 100}%)`; if(current===1){ showWhats(); } }
+    function showWhats(){ const w = document.getElementById('whPopup'); w.classList.add('show'); w.setAttribute('aria-hidden','false'); }
+    function openWhats(){ window.open('https://wa.me/573000000000','_blank') }
+    window.openProduct = openProduct; window.closeModal = closeModal; window.clearCart = clearCart; window.payWith = payWith; window.openWhats = openWhats;
+    window.addEventListener('storage', ()=>{ renderCart(); renderCheckout(); updateCartCount(); });
+    setInterval(()=>goTo(current+1), 7000);
+  </script>
+</body>
+</html>
